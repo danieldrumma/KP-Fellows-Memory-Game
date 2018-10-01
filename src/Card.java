@@ -13,13 +13,14 @@ public class Card {
         location = truLocation;
     }
 
+
+
     @Override
     public String toString() {
         /*
         build string to print card, signals if card has been matched
          */
-        //return ("S(" + suite + ")" + " R(" + rank + ")" +  " Loc=(" + location+")");
-        if(location.equals("Matched!")){
+        if(location.equals("Gone!")){
             return ("|*(Gone!)*|");
         }
         return ("|*(" + location+")*|");

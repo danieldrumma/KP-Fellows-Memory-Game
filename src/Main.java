@@ -11,10 +11,13 @@ public class Main {
     public static final String key = "Heart = H | Club = C | Diamond = D | Spades = S | Joker = J | Queen = Q | King = K | Ace = A";
 
 
-    public static boolean numCheck(String str){
+    public static boolean numCheck(String str, boolean retVal){
         /**
          * ensure that first character entered for a location is a number in the range of 0 - 3
          */
+        if(retVal == false){
+            return false;
+        }
         String[] loc1 = str.split(" ");
 
         int num = Integer.parseInt(loc1[0]);
@@ -48,7 +51,7 @@ public class Main {
                 }
             }
         }
-        if( !numCheck(str)){
+        if( !numCheck(str, retVal)){
             retVal = false;
         }
 
@@ -66,7 +69,7 @@ public class Main {
          *  -track winState with help of Runner class
          */
         System.out.println(WELC_BANNER);
-        //intialize game
+
         Scanner readin = new Scanner(System.in);
 
         System.out.println("Enter the number of players (1-4): ");
@@ -87,8 +90,6 @@ public class Main {
 
         System.out.println(currBoard);
         System.out.println(GAME_INFO);
-
-
 
         boolean win;
         boolean activeGame = true;
@@ -138,7 +139,7 @@ public class Main {
                         System.out.println("Press enter to continue.");
                     } else {
                         System.out.println("That wasn't a match! Remember where these cards are, though!\n");
-                        System.out.println(GAME_INFO);
+
                         System.out.println("Press enter to continue.");
                         win = false;
                     }
@@ -147,7 +148,7 @@ public class Main {
         }
 
         System.out.println("Thanks for playing!");
-        return;
+
 
     }
 }

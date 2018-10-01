@@ -153,12 +153,21 @@ public class Board {
         int loc4 = arr.get(1)[1];
         for(int i = 0; i < board.length; i++){
             for(int j = 0; j < board[i].length; j++){
+
                 if(i == loc1 && j == loc2){
-                    boardPrint = boardPrint + " " + "|~(" + board[i][j].suite + " "+ board[i][j].rank +")~|";
+                    if(board[i][j].location.equals("Gone!")){
+                        boardPrint = boardPrint + " " + board[i][j].toString();
+                    } else {
+                        boardPrint = boardPrint + " " + "|~(" + board[i][j].suite + " " + board[i][j].rank + ")~|";
+                    }
                 }
                 else
                 if(i == loc3 && j == loc4){
-                    boardPrint = boardPrint + " " + "|~(" + board[i][j].suite + " "+ board[i][j].rank +")~|";
+                    if(board[i][j].location.equals("Gone!")){
+                        boardPrint = boardPrint + " " + board[i][j].toString();
+                    } else {
+                        boardPrint = boardPrint + " " + "|~(" + board[i][j].suite + " " + board[i][j].rank + ")~|";
+                    }
                 } else {
                     boardPrint = boardPrint + " " + board[i][j].toString();
                 }

@@ -18,6 +18,7 @@ public class Runner {
          */
         currGame = currBoard;
         currPlayers = playerList;
+        winners = new ArrayList<>();
     }
 
     public boolean verifyMove(String firstGiven, String secondGiven, Player currPlayer) {
@@ -36,7 +37,7 @@ public class Runner {
         newBoard.add(arr);
         newBoard.add(arr2);
         System.out.println(currGame.showPrint(newBoard));
-        if(one.rank == two.rank){
+        if(one.rank == two.rank && !one.location.equals("Gone!") && !two.location.equals("Gone!")){
             Card[] won = {one, two};
             currPlayer.addToWon(won);
             currGame.removeCard(arr);
@@ -47,6 +48,9 @@ public class Runner {
     }
 
     public boolean winCheck(){
+        /**
+         * check if any player has won the game
+         */
         if(currGame.doneGame()) {
             int w = 0;
             for (Player curr : currPlayers) {
@@ -55,7 +59,7 @@ public class Runner {
                 }
             }
             for (Player curr : currPlayers) {
-                if (currPlayers.length == w) {
+                if (curr.winCount() == w) {
                     winners.add(curr);
                 }
             }
@@ -64,5 +68,4 @@ public class Runner {
 
         return false;
     }
-
 }
